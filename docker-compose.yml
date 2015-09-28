@@ -1,0 +1,15 @@
+web:
+  build: .
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+  expose:
+    - 8080
+  volumes:
+    - ./src:/var/www/html
+
+db:
+  image: mariadb
+  env_file:
+    - ./common.env
